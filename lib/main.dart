@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/home.dart';
+import 'screens/home.dart';
 void main(){
   runApp (const SmartSaha());
 }
@@ -10,6 +10,11 @@ class SmartSaha extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner : false,
       title: "Smart saha training",
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+        ),
+      ),
       home: const Home()
     );
   }
