@@ -2,6 +2,7 @@ import "../models/parcelle.dart";
 
 final List<Parcelle> parcelles = [
   const Parcelle(
+    id:"1",
     nom: 'Parcelle Andranomena',
     agriculteur: 'Rakoto',
     commune: 'Andranomena',
@@ -11,6 +12,7 @@ final List<Parcelle> parcelles = [
     observation: 'sol humide',
   ),
   const Parcelle(
+    id:"2",
     nom: 'Parcelle Tanambao',
     agriculteur: 'Rasoa',
     commune: 'Tanambao',
@@ -20,6 +22,7 @@ final List<Parcelle> parcelles = [
     observation: 'sol sec',
   ),
   const Parcelle(
+    id:"3",
     nom: 'Parcelle Ankafotra',
     agriculteur: 'Ravao',
     commune: 'Ankafotra',
@@ -29,6 +32,7 @@ final List<Parcelle> parcelles = [
     observation: 'sol humide',
   ),
   const Parcelle(
+    id:"4",
     nom: 'Parcelle Soatsiadino',
     agriculteur: 'Ralaiza',
     commune: 'Soaindrana',
@@ -38,6 +42,7 @@ final List<Parcelle> parcelles = [
     observation: 'sol sec',
   ),
   const Parcelle(
+    id:"5",
     nom: 'Parcelle Tananomby',
     agriculteur: 'Ralaiza',
     commune: 'Tanambao Zoara',
