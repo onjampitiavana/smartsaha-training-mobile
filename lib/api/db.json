@@ -1,0 +1,61 @@
+{
+  "parcelles": [
+    {
+      "id": 1,
+      "nom": "Rizière Nord",
+      "agriculteur": "Rakoto Jean",
+      "commune": "Ambohitratrimo",
+      "superficie": 1.5,
+      "culture": "Riz",
+      "status": "actif"
+    },
+    {
+      "id": 2,
+      "nom": "Manioc Sud",
+      "agriculteur": "Rasoa Marie",
+      "commune": "Manjakandriana",
+      "superficie": 0.8,
+      "culture": "Manioc",
+      "status": "actif"
+    },
+    {
+      "id": 3,
+      "nom": "Maïs Est",
+      "agriculteur": "Randria Paul",
+      "commune": null,
+      "superficie": 2,
+      "culture": "Maïs",
+      "status": "suspendu"
+    },
+    {
+      "id": 4,
+      "nom": "Haricot Ouest",
+      "agriculteur": "Rabe Hery",
+      "commune": "Sakay",
+      "superficie": 3.25,
+      "culture": "Haricot",
+      "status": "actif"
+    },
+    {
+      "nom": "sa",
+      "agriculteur": "sa",
+      "commune": "sa",
+      "superficie": 3,
+      "status": "active",
+      "culture": "ca",
+      "observation": "",
+      "id": 5
+    },
+    {
+      "nom": "sas",
+      "agriculteur": "a",
+      "commune": "s",
+      "superficie": 2,
+      "status": "active",
+      "culture": "a",
+      "observation": "",
+      "id": 6
+    }
+  ],
+  "observations": []
+}
