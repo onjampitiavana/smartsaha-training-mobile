@@ -1,17 +1,21 @@
 # smartsaha_training_mobile
 
-A new Flutter project.
+Projet flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Prerequis
+- Flutter SDk
+- Dart SDK
+- Android Studio
+- Android emulator
+- VS Code
+## version utilisees
+- fluter: Flutter 3.47.5
+- Dart : Dart 3.13.4
+## installation
+- cloner le depot: git clone git@github.com:onjampitiavana/smartsaha-training-mobile.git
+- cd smartsaha-training-mobile.git
+- installer des dependence: flutter pub get
+## Lancement
+- Trouver l'emulateur disponible avec la commande: flutter emulators
+- Demmarer l'emulateur: flutter emulators --launch <id_emulateur>
+- Lancer flutter: flutter run
