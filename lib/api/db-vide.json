@@ -1,1 +1,25 @@
-{ "parcelles": [], "observations": [] }
+{
+  "parcelles": [
+    {
+      "nom": "sa",
+      "agriculteur": "sa",
+      "commune": "sa",
+      "superficie": 2,
+      "status": "active",
+      "culture": "sa",
+      "observation": "",
+      "id": 1
+    },
+    {
+      "nom": "sa",
+      "agriculteur": "sa",
+      "commune": "sa",
+      "superficie": 2,
+      "status": "active",
+      "culture": "sa",
+      "observation": "",
+      "id": 2
+    }
+  ],
+  "observations": []
+}

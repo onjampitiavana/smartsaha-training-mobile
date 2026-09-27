@@ -20,9 +20,14 @@ class _ListeParcellesPageState extends State<ListeParcellesPage> {
   }
  
   Future<void> charger() async {
-    final res = await http.get(Uri.parse('http://localhost:3000/parcelles'));
-    parcelles = jsonDecode(res.body);
-    chargement = false;
+    //final res = await http.get(Uri.parse('http://localhost:3000/parcelles'));
+    final res = await http.get(Uri.parse('http://10.0.2.2:3000/parcelles'));
+    setState((){
+      parcelles = jsonDecode(res.body);
+      chargement=false;
+    });
+   //parcelles = jsonDecode(res.body);
+  // chargement = false;
   }
  
   @override
@@ -31,7 +36,8 @@ class _ListeParcellesPageState extends State<ListeParcellesPage> {
       appBar: AppBar(title: const Text('Parcelles (J5)')),
       body: chargement
           ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(itemCount: parcelles.length + 1,
+         // : ListView.builder(itemCount: parcelles.length + 1,
+          : ListView.builder(itemCount: parcelles.length ,
               itemBuilder: (context, i) => ListTile(
                 title: Text(parcelles[i]['nom']),
                 subtitle: Text('${parcelles[i]['superficie']} ha'),

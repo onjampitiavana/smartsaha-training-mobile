@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../api/service.dart';
 import '../models/parcelle.dart';
+import '../training/parcelle_utils.dart';
 
 class ParcelleFormScreen extends StatefulWidget {
   const ParcelleFormScreen({super.key});
@@ -128,18 +129,7 @@ class _ParcelleFormScreenState extends State<ParcelleFormScreen> {
                 labelText: 'Superficie (ha)',
                 border: OutlineInputBorder(),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Veuillez entrer la superficie';
-                }
-                final nombre = double.tryParse(
-                  value.replaceAll(',', '.'),
-                );
-                if (nombre == null || nombre <= 0) {
-                  return 'Superficie invalide';
-                }
-                return null;
-              },
+              validator:validerSuperficie,            
             ),
             const SizedBox(height: 15),
             TextFormField(

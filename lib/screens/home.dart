@@ -4,6 +4,7 @@ import 'parcelleScreen.dart';
 import 'parceleAjout.dart';
 import '../api/service.dart';
 import '../models/parcelle.dart';
+import '../training/liste_parcelles_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,7 +15,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final Service service = Service();
-
   List<Parcelle> parcelles = [];
   bool isLoading = true;
   bool hasError = false;
@@ -33,9 +33,7 @@ class _HomeState extends State<Home> {
 
     try {
       final result = await service.getParcelle();
-
       if (!mounted) return;
-
       setState(() {
         parcelles = result;
         isLoading = false;
@@ -59,7 +57,6 @@ class _HomeState extends State<Home> {
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(top: 15.0),
         child: FloatingActionButton.extended(
@@ -82,7 +79,6 @@ class _HomeState extends State<Home> {
       body: Column(
         children: [
           const SizedBox(height: 20),
-
           const Text(
             "SmartSaha Training",
             style: TextStyle(
@@ -90,14 +86,25 @@ class _HomeState extends State<Home> {
               fontWeight: FontWeight.bold,
             ),
           ),
-
           const SizedBox(height: 10),
-
           const Text("Santatra"),
+        const SizedBox(height: 20),
 
-          const SizedBox(height: 30),
+ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ListeParcellesPage(),
+      ),
+    );
+  },
+  child: const Text("Voir les parcelles"),
+),
 
-          Expanded(
+const SizedBox(height: 20),
+
+Expanded(
             child: _buildContent(),
           ),
         ],
@@ -165,6 +172,7 @@ class _HomeState extends State<Home> {
               ),
             );
           },
+          
         );
       },
     );

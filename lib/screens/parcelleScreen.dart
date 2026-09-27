@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "../models/parcelle.dart";
+//import '../training/liste_parcelles_page.dart';
 
 class ParcelleDetail extends StatelessWidget {
   final Parcelle parcelle;
@@ -27,6 +28,7 @@ class ParcelleDetail extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            
             Text('Agriculteur : ${parcelle.agriculteur}'),
             const SizedBox(height: 8),
             Text('Commune : ${parcelle.commune}'),

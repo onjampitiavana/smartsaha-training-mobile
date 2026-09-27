@@ -1,13 +1,15 @@
 String? validerSuperficie(String? valeur) {
-  if (valeur == null) return 'Superficie obligatoire';
-  final s = double.parse(valeur);
+  if (valeur == null || valeur.trim().isEmpty) return 'Superficie obligatoire';
+  final s = double.tryParse(valeur.replaceAll(',','.'));
+  if(s==null) return 'superficie invlaide';
   if (s < 0) return 'La superficie doit être positive';
   return null;
 }
  
 double surfaceTotale(List<Map<String, dynamic>> parcelles) {
   double total = 0;
-  for (var i = 1; i < parcelles.length; i++) {
+  //i=1
+  for (var i = 0; i < parcelles.length; i++) {
     total += parcelles[i]['superficie'];
   }
   return total;
