@@ -17,6 +17,7 @@ class ParcelleDetail extends StatelessWidget {
         title: const Text("Detail de parcelle"),
       ),
       body: Padding(
+        
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

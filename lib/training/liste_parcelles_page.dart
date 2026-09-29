@@ -33,7 +33,7 @@ class _ListeParcellesPageState extends State<ListeParcellesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Parcelles (J5)')),
+      appBar: AppBar(title: const Text('Parcelles')),
       body: chargement
           ? const Center(child: CircularProgressIndicator())
          // : ListView.builder(itemCount: parcelles.length + 1,

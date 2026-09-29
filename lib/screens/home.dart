@@ -5,6 +5,7 @@ import 'parceleAjout.dart';
 import '../api/service.dart';
 import '../models/parcelle.dart';
 import '../training/liste_parcelles_page.dart';
+import 'observationScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,9 +16,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final Service service = Service();
+
   List<Parcelle> parcelles = [];
+
   bool isLoading = true;
   bool hasError = false;
+
+  int currentIndex = 0;
 
   @override
   void initState() {
@@ -33,7 +38,9 @@ class _HomeState extends State<Home> {
 
     try {
       final result = await service.getParcelle();
+
       if (!mounted) return;
+
       setState(() {
         parcelles = result;
         isLoading = false;
@@ -56,59 +63,75 @@ class _HomeState extends State<Home> {
         title: const Text("SmartSaha Training"),
       ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(top: 15.0),
-        child: FloatingActionButton.extended(
-          onPressed: () async {
-  final result = await Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const ParcelleFormScreen(),
-    ),
-  );
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.endTop,
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: currentIndex,
 
-  if (result == true) {
-    chargerParcelles();
-  }
-},
-          label: const Text("Ajouter"),
-        ),
-      ),
+        onDestinationSelected: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
 
-      body: Column(
-        children: [
-          const SizedBox(height: 20),
-          const Text(
-            "SmartSaha Training",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.agriculture_outlined),
+            selectedIcon: Icon(Icons.agriculture),
+            label: "Parcelles",
           ),
-          const SizedBox(height: 10),
-          const Text("Santatra"),
-        const SizedBox(height: 20),
 
-ElevatedButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const ListeParcellesPage(),
-      ),
-    );
-  },
-  child: const Text("Voir les parcelles"),
-),
-
-const SizedBox(height: 20),
-
-Expanded(
-            child: _buildContent(),
+          NavigationDestination(
+            icon: Icon(Icons.assignment_outlined),
+            selectedIcon: Icon(Icons.assignment),
+            label: "Observations",
           ),
         ],
       ),
+
+      body: currentIndex == 0
+          ? _buildParcellesPage()
+          : const ObservationScreen(),
+    );
+  }
+
+  Widget _buildParcellesPage() {
+    return Column(
+      children: [
+        const SizedBox(height: 20),
+
+        const Text(
+          "SmartSaha Training",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
+        const SizedBox(height: 10),
+
+        const Text("Santatra"),
+
+        const SizedBox(height: 20),
+
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ListeParcellesPage(),
+              ),
+            );
+          },
+          child: const Text("Voir les parcelles"),
+        ),
+
+        const SizedBox(height: 20),
+
+        Expanded(
+          child: _buildContent(),
+        ),
+      ],
     );
   }
 
@@ -150,14 +173,17 @@ Expanded(
 
     return ListView.builder(
       itemCount: parcelles.length,
+
       itemBuilder: (context, index) {
         final parcelle = parcelles[index];
 
         return ListTile(
           title: Text(parcelle.nom),
+
           subtitle: Text(
             '${parcelle.commune} - ${parcelle.superficie} ha',
           ),
+
           trailing: Text(parcelle.status),
 
           onTap: () {
@@ -172,7 +198,6 @@ Expanded(
               ),
             );
           },
-          
         );
       },
     );
