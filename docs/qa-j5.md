@@ -1,0 +1,9 @@
+## Bugs detectes — QA J5
+
+| ID | Fonction | Etapes de reproduction | Resultat actuel | Resultat attendu | Severite |
+|---|---|---|---|---|---|
+| **QA-01** | Chargement de la page ListeParcellesPage | Lancer le serveur API et l'application Flutter. Puis cliquer sur : Voir les parcelles et observer le chargement de la page. Apres, relancer le projet et le serveur plusieurs fois pour reproduire le probleme. | Le chargement de ListeParcellesPage est tres long. | La page doit charger rapidement et afficher la liste des parcelles. | Majeur |
+| **QA-02** | Affichage de la liste des parcelles | Lancer l'application et ouvrir ListeParcellesPage. Apres, verifier l'affichage de plusieurs parcelles. | Une erreur s'affiche en bas de la liste des parcelles. | La liste doit afficher toutes les parcelles sans erreur. | Majeur |
+| **QA-03** | Validation de la superficie | Ouvrir le formulaire Ajouter une parcelle. Laisser le champ Superficie vide. Cliquer sur ENREGISTRER. | Une erreur FormatException peut apparaitre. | Un message "Superficie obligatoire" doit apparaitre. | Majeur |
+| **QA-04** | Calcul de la superficie totale | Lancer le test de calcul avec plusieurs parcelles. Verifier le total des superficies. | La premiere parcelle n'est pas prise en compte dans le calcul. | Toutes les superficies doivent etre prises en compte. | Majeur |
+| **QA-05** | Gestion du serveur indisponible | Arreter le serveur API. Lancer l'application et ouvrir ListeParcellesPage. | La page reste en chargement sans message d'erreur. | Un message doit indiquer que les donnees ne peuvent pas etre chargees. | Mineur |
